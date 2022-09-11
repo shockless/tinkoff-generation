@@ -7,14 +7,13 @@ import pickle
 
 
 class W2V:
-    def __init__(self, vector_size=16, window=4):
-        self.vector_size = vector_size
-        self.window = window    
+    def __init__(self):
+        pass
          
     def fit(self, text):
         self.word2vec = Word2Vec(min_count=1,
-                    window=self.window,
-                    size=self.vector_size, 
+                    window=5,
+                    size=16, 
                     alpha=0.03, 
                     min_alpha=0.0007, 
                     sg = 1,
@@ -91,7 +90,7 @@ class Generator:
             n_estimators=70,
             learning_rate=0.5,
             max_depth=3,
-            objective='multi:softmax'
+            objective='multi:softmax',
             num_class = len(self.dict_py)
         )
         xgb.fit(x[:train_size+1],y[:train_size+1])
