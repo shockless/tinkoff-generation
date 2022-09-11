@@ -6,6 +6,9 @@ from preprocess import Preprocessor
 from model import W2V, Generator
 
 if __name__ == "__main__":
+    import nltk
+    nltk.download('stopwords')
+
     parser = argparse.ArgumentParser(description='Train and fit')
     parser.add_argument('--input-dir', type=str, help='Dir data path')
     parser.add_argument('--model', type=str, help='Model save path')
@@ -30,11 +33,11 @@ if __name__ == "__main__":
         lines=str(input())
     clean = []
 
-    clean = Preprocessor.tokenization(lines)
+    p = Preprocessor()
+    clean = p.tokenization(lines)
     w2v = W2V()
 
     w2v.fit(clean)
-    w2v.save_model(arguments.word2vec)
     generator = Generator(w2v=w2v)
     x,y = generator.transform(1, clean)
     generator.xgb_train(x,y,5000)
