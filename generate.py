@@ -14,4 +14,4 @@ if __name__ == "__main__":
         text=Preprocessor.pred_preprocess(arguments.prefix)
 
     gen = Generator.load_model(arguments.model)
-    print(gen.predict(text, length, 3, 2, 4))
+    print(gen.predict(text, length, 3, 1, 4))
