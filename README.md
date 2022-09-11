@@ -1,7 +1,9 @@
-# tinkoff-generation
+text2text генерация с помощью TF-IDF + W2V + XGBoost
 
-Тренировака модели 'python train.py --model "model.pkl" --input-dir "C:\Users\fedor\tinkoff-generation\data"'
+Тренировка модели 'python train.py --model "model.pkl" --input-dir "C:\Users\fedor\tinkoff-generation\data"'
+
 Генерация python predict.py --model "model.pkl" --prefix "Он шел" --length 5
+
 
 Предпроцессинг:
 Возвращение всех слов к начальным формам и именительному падежу
