@@ -1,0 +1,7 @@
+tqdm
+pymorphy2
+nltk
+xgboost
+numpy
+gensim
+argparse
