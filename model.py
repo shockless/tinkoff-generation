@@ -7,13 +7,14 @@ import pickle
 
 
 class W2V:
-    def __init__(self):
-        pass
+    def __init__(self, vector_size=16, window=4):
+        self.vector_size = vector_size
+        self.window = window    
          
     def fit(self, text):
         self.word2vec = Word2Vec(min_count=1,
-                    window=5,
-                    size=16, 
+                    window=self.window,
+                    vector_size=self.vector_size, 
                     alpha=0.03, 
                     min_alpha=0.0007, 
                     sg = 1,
